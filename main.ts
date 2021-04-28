@@ -35,30 +35,23 @@ let PLAYER2 = sprites.create(img`
     f 2 2 2 2 2 2 2 2 2 2 2 2 2 f . . . 
     f f f f f f f f f f f f f f f . . . 
     `, SpriteKind.Player)
+tiles.placeOnTile(PLAYER1, tiles.getTileLocation(2, 8))
+tiles.placeOnTile(PLAYER2, tiles.getTileLocation(8, 6))
 tiles.setTilemap(tilemap`level1`)
-PLAYER1.setPosition(10, 10)
-PLAYER2.setPosition(150, 110)
+PLAYER1.setStayInScreen(true)
+PLAYER2.setStayInScreen(true)
+PLAYER1.setBounceOnWall(true)
+PLAYER2.setBounceOnWall(true)
 forever(function () {
-    music.playMelody("G F G A - F E D ", 360)
-    music.playMelody("E D E G - E D C ", 360)
-    music.playMelody("E D E D E G - E ", 360)
-    music.playMelody("G G G G - - - - ", 360)
+    PLAYER1.setVelocity(50, 50)
+    PLAYER2.setVelocity(50, 50)
 })
 forever(function () {
-    music.playMelody("G F G A - F E D ", 360)
-    music.playMelody("E D E G - E D C ", 360)
-    music.playMelody("E D E D E G - E ", 360)
-    music.playMelody("C C C C - - - - ", 360)
+	
 })
 forever(function () {
-    music.playMelody("G F G A - F E D ", 360)
-    music.playMelody("E D E G - E D C ", 360)
-    music.playMelody("E D E D E G - E ", 360)
-    music.playMelody("E E E E - - - - ", 360)
+	
 })
 forever(function () {
-    music.playMelody("G F G A - F E D ", 360)
-    music.playMelody("E D E G - E D C ", 360)
-    music.playMelody("E D E D E G - E ", 360)
-    music.playMelody("C5 C5 C5 C5 - - - - ", 360)
+	
 })
