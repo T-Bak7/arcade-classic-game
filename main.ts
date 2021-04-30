@@ -38,6 +38,8 @@ let PLAYER2 = sprites.create(img`
 tiles.setTilemap(tilemap`level1`)
 PLAYER1.setPosition(10, 10)
 PLAYER2.setPosition(146, 106)
+controller.moveSprite(PLAYER1)
+controller.player2.moveSprite(PLAYER2)
 forever(function () {
 	
 })
