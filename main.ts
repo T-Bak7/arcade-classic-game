@@ -18,22 +18,22 @@ let PLAYER1 = sprites.create(img`
     f f f f f f f f f f f f f f . . . . 
     `, SpriteKind.Player)
 let PLAYER2 = sprites.create(img`
-    f f f f f f f f f f f f f f f . . . 
-    f 2 2 2 2 2 2 2 2 2 2 2 2 2 f . . . 
-    f 2 2 2 2 2 2 2 2 2 2 2 2 2 f . . . 
-    f 2 2 2 2 2 2 2 2 2 2 2 2 2 f . . . 
-    f 2 2 2 2 2 2 2 2 2 2 2 2 2 f . . . 
-    f 2 2 2 2 2 2 2 2 2 2 2 2 2 f . . . 
-    f 2 2 2 2 2 2 2 2 f f f f f f f f f 
-    f 2 2 2 2 2 2 2 2 f 2 2 2 2 2 2 2 f 
-    f 2 2 2 2 2 2 2 2 f 2 2 2 2 2 2 2 f 
-    f 2 2 2 2 2 2 2 2 f f f f f f f f f 
-    f 2 2 2 2 2 2 2 2 2 2 2 2 2 f . . . 
-    f 2 2 2 2 2 2 2 2 2 2 2 2 2 f . . . 
-    f 2 2 2 2 2 2 2 2 2 2 2 2 2 f . . . 
-    f 2 2 2 2 2 2 2 2 2 2 2 2 2 f . . . 
-    f 2 2 2 2 2 2 2 2 2 2 2 2 2 f . . . 
-    f f f f f f f f f f f f f f f . . . 
+    f f f f f f e f f f f f f f . . . . 
+    c c c c c c c c c c c c e c . . . . 
+    c c c c c c c c e c c c c c . . . . 
+    c c e c c c c c c c c c c c . . . . 
+    c c c c f f f f f f f c c c . . . . 
+    c c c f e f f f f e f f e c . . . . 
+    c c c f f f f f f f f f c c . . . . 
+    c c c f f f f f 1 f f f f f f f f . 
+    c e c f f f f f 1 f f f f e f f f . 
+    c c c f f e f f f f f f c e . . . . 
+    c c c f f f f f f f e f c c . . . . 
+    c c c c f f f f f f f c c c . . . . 
+    c e c c e c c c c c c c e c . . . . 
+    c c c c c c c c e c c c c c . . . . 
+    c c c c c c c c c c c c c c . . . . 
+    f f f f f f f f f f f f f f . . . . 
     `, SpriteKind.Player)
 tiles.setTilemap(tilemap`level1`)
 PLAYER1.setPosition(10, 10)
