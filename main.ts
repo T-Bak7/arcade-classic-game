@@ -3,8 +3,7 @@ namespace SpriteKind {
     export const Player2 = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Player2, function (sprite, otherSprite) {
-    projectile.destroy()
-    info.player2.changeLifeBy(-1)
+    game.over(false, effects.blizzard)
     music.powerDown.play()
 })
 info.onCountdownEnd(function () {
@@ -12,15 +11,12 @@ info.onCountdownEnd(function () {
     game.reset()
 })
 sprites.onOverlap(SpriteKind.projectile2, SpriteKind.Player, function (sprite, otherSprite) {
-    projectile2.destroy()
-    info.changeLifeBy(-1)
+    game.over(false, effects.blizzard)
     music.powerDown.play()
 })
 let projectile2: Sprite = null
 let projectile: Sprite = null
 music.setVolume(255)
-info.setLife(5)
-info.player2.setLife(5)
 let PLAYER1 = sprites.create(img`
     f f f f f f f f f f f f f f . . . . 
     e e e e e e e e e e e e e e . . . . 
@@ -56,7 +52,25 @@ let PLAYER2 = sprites.create(img`
     c c c c c c c c e c c c c c . . . . 
     c c c c c c c c c c c c c c . . . . 
     f f f f f f f f f f f f f f . . . . 
-    `, SpriteKind.Player2)
+    `, SpriteKind.Player)
+let LIFE_BONUS = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Player)
 tiles.setTilemap(tilemap`level1`)
 PLAYER1.setPosition(10, 10)
 PLAYER2.setPosition(146, 106)
@@ -125,7 +139,6 @@ forever(function () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, PLAYER2, 0, -100)
-        projectile2.setKind(SpriteKind.projectile2)
         PLAYER2.setImage(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . f f . . . . . . . 
@@ -210,7 +223,6 @@ forever(function () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, PLAYER2, 0, 100)
-        projectile2.setKind(SpriteKind.projectile2)
         PLAYER2.setImage(img`
             f c c c c c c c c c c c c c c f 
             f c c e c c c e c c c c c c c f 
@@ -293,7 +305,6 @@ forever(function () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, PLAYER2, -100, 0)
-        projectile2.setKind(SpriteKind.projectile2)
         PLAYER2.setImage(img`
             . . . . f f f f f f f f f f f f f f 
             . . . . c c c c c c c c c c c c c c 
@@ -374,7 +385,6 @@ forever(function () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, PLAYER2, 100, 0)
-        projectile2.setKind(SpriteKind.projectile2)
         PLAYER2.setImage(img`
             f f f f f f e f f f f f f f . . . . 
             c c c c c c c c c c c c e c . . . . 
@@ -416,7 +426,7 @@ forever(function () {
     music.rest(music.beat(BeatFraction.Half))
 })
 forever(function () {
-	
+    pause(randint(5000, 20000))
 })
 forever(function () {
 	
@@ -425,16 +435,5 @@ forever(function () {
 	
 })
 forever(function () {
-    if (info.life() < 1) {
-        PLAYER2.say("I WIN!!!")
-        pause(4000)
-        game.over(true)
-    }
-})
-forever(function () {
-    if (info.player2.life() < 1) {
-        PLAYER1.say("I WIN!!!")
-        pause(4000)
-        game.over(true)
-    }
+	
 })
