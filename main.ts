@@ -176,7 +176,7 @@ forever(function () {
             . . . . . . . . . . . . . . . . 
             `, PLAYER2, -100, 0)
         music.pewPew.play()
-        pause(500)
+        pause(1000)
     }
     if (controller.player1.isPressed(ControllerButton.Right)) {
         projectile = sprites.createProjectileFromSprite(img`
